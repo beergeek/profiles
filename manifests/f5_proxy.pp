@@ -54,7 +54,7 @@ define profiles::f5_proxy (
 	file {"/var/opt/lib/pe-puppet/devices/${f5_device}/ssl/certs/${f5_device}.pem":
 	  ensure  => file,
 	  mode    => '0644',
-	  content => file('/etc/puppetlabs/puppet/ssl/certs/${f5_device}.pem'),
+	  content => file("/etc/puppetlabs/puppet/ssl/certs/${f5_device}.pem"),
 	}
 
 	file {"/var/opt/lib/pe-puppet/devices/${f5_device}/ssl/crl.pem":
