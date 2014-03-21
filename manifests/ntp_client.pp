@@ -8,7 +8,7 @@ class profiles::ntp_client {
     }
   } else {
     class {'winntp':
-      ntp_servers => $ntp_servers,
+      ntp_server => $ntp_servers,
     }
   }
 }
