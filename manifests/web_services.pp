@@ -1,4 +1,4 @@
-class profiles::apache_php {
+class profiles::web_services {
 
   require apache
   require apache::mod::php
