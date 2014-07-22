@@ -6,5 +6,4 @@ class profiles::base {
   create_resources(sysctl,$sysctl_settings, $sysctl_defaults)
 
   include profiles::ntp_client
-  include mco_agents
 }
