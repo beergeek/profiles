@@ -16,4 +16,11 @@ class profiles::web_services {
   #create host entries
   create_resources('host',$host_hash,$host_defaults)
 
+  # add firewall rules
+  firewall { '100 allow http and https access':
+    port   => [80, 443],
+    proto  => tcp,
+    action => accept,
+  }
+
 }

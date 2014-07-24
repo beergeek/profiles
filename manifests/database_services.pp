@@ -11,4 +11,10 @@ class profiles::database_services {
   # create databases
   create_resources('mysql::db',$db_hash,$db_defaults)
 
+  # firewall rules
+  firewall { '101 allow mysql access':
+    port   => [3306],
+    proto  => tcp,
+    action => accept,
+  }
 } 
