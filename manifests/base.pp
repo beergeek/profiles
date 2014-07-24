@@ -7,7 +7,6 @@ class profiles::base {
   class {['profiles::fw::pre','profiles::fw::post']:}
 
   Firewall {
-    require => undef,
     before  => Class['profiles::fw::post'],
     require => Class['profiles::fw::pre'],
   }
