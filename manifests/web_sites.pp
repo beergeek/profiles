@@ -14,11 +14,13 @@ define profiles::web_sites (
     docroot  => $docroot,
   }
 
-  vcsrepo {$site_name:
-    path     => $docroot,
-    provider => $repo_provider,
-    source   => $repo_source,
-    require  => Apache::Vhost[$site_name],
+  if $repo_source {
+    vcsrepo {$site_name:
+      path     => $docroot,
+      provider => $repo_provider,
+      source   => $repo_source,
+      require  => Apache::Vhost[$site_name],
+    }
   }
 
   host {$site_name:
