@@ -16,6 +16,7 @@ define profiles::web_sites (
 
   if $repo_source {
     vcsrepo {$site_name:
+      ensure   => present,
       path     => $docroot,
       provider => $repo_provider,
       source   => $repo_source,
