@@ -38,11 +38,11 @@ class profiles::iis {
   dism { "IIS-WebServerManagementTools": } ->
   dism { "IIS-ManagementConsole":        } ->
   dism { "IIS-ManagementScriptingTools": } ->
-  dism { "IIS-ManagementService":        }
+  dism { "IIS-ManagementService":        } ->
 
   # Remove default binding by removing default website
   # (so it can be used by something else)
-  #iis_site {'Default Web Site':
-  #  ensure   => absent,
-  #}
+  iis_site {'Default Web Site':
+    ensure   => absent,
+  }
 }
