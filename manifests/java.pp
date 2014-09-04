@@ -25,6 +25,7 @@ class profiles::java {
   reboot { 'Java Path':
     subscribe => Windows_path['add_java'],
     apply     => immediately,
+    timeout   => '15',
   }
 
 }
