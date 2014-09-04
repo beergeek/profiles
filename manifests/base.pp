@@ -13,6 +13,24 @@ class profiles::base {
 
   create_resources(sysctl,$sysctl_settings, $sysctl_defaults)
 
+  @@host { $::fqdn:
+    ensure        => present,
+    host_aliases  => [$::hostname],
+    ip            => $::ipaddress,
+  }
+
+  host { 'localhost':
+    ensure       => present,
+    host_aliases => ['localhost.localdomai','localhost6','localhost6.localdomain6'],
+    ip           => '127.0.0.1',
+  }
+
+  Host <<| |>>
+
+  resources { 'host':
+    purge => true,
+  }
+
   # setup NTP client
   include profiles::ntp_client
 
