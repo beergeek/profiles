@@ -38,7 +38,7 @@ class profiles::java {
 
   reboot { 'Java Path':
     subscribe => Windows_path['add_java'],
-    apply     => finished,
+    apply     => immediately,
   }
 
 }
