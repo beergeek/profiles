@@ -15,19 +15,20 @@ class profiles::java {
   }
 
 
-  file { "C:/data/${java_pkg_src}":
+  file { 'java_file':
     ensure => present,
+    path   => "c:\\data\\${java_pkg_src}",
     owner  => 'Administrator',
     group  => 'Administrators',
     mode   => '0755',
-    source => "puppet:///modules/profiles/{$java_pkg_src}",
+    source => "puppet:///modules/profiles/${java_pkg_src}",
   }
 
   package { $java_pkg_title:
     ensure          => present,
     source          => "C:\data\${java_pkg_src}",
     install_options => ['/s',{'WEB_JAVA' => 0}, '/L','C:\crap.log'],
-    require         => File["C:/data/${java_pkg_src}"],
+    require         => File['java_file'],
   }
 
   windows_path { 'add_java':
