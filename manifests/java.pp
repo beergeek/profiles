@@ -1,9 +1,8 @@
 class profiles::java {
 
-
   file { 'java_file':
     ensure => present,
-    path   => 'C:\\data\jre-8u5-windows-x64.exe',
+    path   => 'C:\data\jre-8u5-windows-x64.exe',
     owner  => 'Administrator',
     group  => 'Administrators',
     mode   => '0755',
