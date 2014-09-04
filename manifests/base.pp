@@ -18,15 +18,15 @@ class profiles::base {
     host_aliases  => [$::hostname],
     ip            => $::ipaddress,
   }
-  
+
   host { 'localhost':
     ensure       => present,
     host_aliases => ['localhost.localdomai','localhost6','localhost6.localdomain6'],
     ip           => '127.0.0.1',
   }
-  
+
   Host <<| |>>
-  
+
   resources { 'host':
     purge => true,
   }
