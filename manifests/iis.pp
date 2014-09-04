@@ -42,7 +42,7 @@ class profiles::iis {
 
   # Remove default binding by removing default website
   # (so it can be used by something else)
-  iis_site {'Default Web Site':
-    ensure   => absent,
-  }
+  #iis_site {'Default Web Site':
+  #  ensure   => absent,
+  #}
 }
