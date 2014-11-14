@@ -3,6 +3,12 @@ class profiles::web_services {
   $website_hash 	= hiera_hash('profiles::web_services::website_hash')
   $website_defaults 	= hiera('profiles::web_services::website_defaults')
 
+  ensure_packages(['git'])
+
+  Profiles::Web_sites {
+    require => Package['git'],
+  }
+
   #build base web server
   require apache
   require apache::mod::php
